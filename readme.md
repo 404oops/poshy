@@ -1,3 +1,4 @@
+![Poshy](images/poshy.png "Poshy")
 # Poshy, The extensible shell
 Poshy is a shell similar to zsh, but written in python, so it'll have the a different functionality than zsh. It's independent of a config file, and since it's written in python, you'll have no problem mixing and matching your own Poshy-spins
 
