@@ -1,12 +1,7 @@
-import bin.ayploader
 import os
-import getpass
-un = getpass.getuser()
-id = '$'
-if un == 'root':
-    id = '#'
+
 while True:
-    app = input(f"Poshy: {un} {id}> ")
+    app = input("PyOS: $> ")
     if app == 'exitos':
         exit()
     try:
