@@ -1,4 +1,5 @@
 import bin.ayploader
+import poshcorn
 import os
 import getpass
 un = getpass.getuser()
