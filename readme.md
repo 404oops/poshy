@@ -1,12 +1,14 @@
-<img title="Poshy" alt="Poshy" src="images/poshy.png" width="256" height="256">
+<center>
+	<img title="Poshy" alt="Poshy" src="images/poshy.png" width="256" height="256">
+	<h1>Poshy, an extensible shell written in Python</h1>
+</center>
 
-## Poshy, The extensible shell
-You can contact us via <a href="https://discord.gg/R5ExvA63Jz">Our Discord!</a>
+You can contact us via <a href="https://discord.gg/R5ExvA63Jz">our Discord!</a>
 
-Poshy is a shell similar to zsh, but written in python, so it'll have the a different functionality than zsh. It's independent of a config file, and since it's written in python, you'll have no problem mixing and matching your own Poshy-spins
+Poshy is a work-in-progress shell written in Python. As of now, it has no configuration files.
 
 ## Usage
-Just install it and run the `start-poshy` file. It's written in bash, so you'll know exactly what the code is
+Git clone the repo (or download as a ZIP file if you're into that) and run `python3 ./poshy.py`
 
 ## AYP DOCUMENTATION
 AYP (All your plugins) are simple plugins that run before the shell does. There's not API you need to learn before making a plugin or program.
