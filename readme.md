@@ -1,6 +1,8 @@
 <img title="Poshy" alt="Poshy" src="images/poshy.png" width="256" height="256">
 
 ## Poshy, The extensible shell
+You can contact us via <a href="https://discord.gg/R5ExvA63Jz">Our Discord!</a>
+
 Poshy is a shell similar to zsh, but written in python, so it'll have the a different functionality than zsh. It's independent of a config file, and since it's written in python, you'll have no problem mixing and matching your own Poshy-spins
 
 ## Usage
