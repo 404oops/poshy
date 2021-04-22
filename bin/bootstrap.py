@@ -13,6 +13,6 @@ while True:
     if app == 'exitos':
         exit()
     try:
-        eval(app)
+        exec(app)
     except:
         os.system(app)
