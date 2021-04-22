@@ -1,6 +1,6 @@
 <img title="Poshy" alt="Poshy" src="images/poshy.png" width="256" height="256">
 
-##IMPORTAINT! THIS IS THE PRERELEASE OF THE WINDOWS BUILD! BUGS MAY OCCUR!
+## IMPORTAINT! THIS IS THE PRERELEASE OF THE WINDOWS BUILD! BUGS MAY OCCUR!
 
 ## Poshy, The extensible shell
 Poshy is a shell similar to zsh, but written in python, so it'll have the a different functionality than zsh. It's independent of a config file, and since it's written in python, you'll have no problem mixing and matching your own Poshy-spins
