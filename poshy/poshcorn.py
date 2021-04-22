@@ -1,4 +1,5 @@
 import os
+
 def install(ghuser, ghrepo):
     os.system(f"git clone https://github.com/{ghuser}/{ghrepo} ")
     os.chdir(ghrepo)
