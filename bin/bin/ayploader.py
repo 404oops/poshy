@@ -4,3 +4,4 @@
 # This really speeds up setups for users
 # Anyway, enjoy!
 import bin.programs.motd
+import bin.programs.chat
