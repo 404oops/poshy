@@ -7,7 +7,7 @@ id = '$'
 if un == 'root':
     id = '#'
 while True:
-    app = input(f"Poshy v0.0.7: {un} {id}> ")
+    app = input(f"Poshy v0.0.8: {un} {id}> ")
     if "cd" in app:
         dir = app[3:]
         os.chdir(dir)
