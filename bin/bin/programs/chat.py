@@ -2,4 +2,4 @@
 import bz2, base64
 
 print('Type `chat` to chat with somebody else on your system!')
-exec(bz2.decompress(base64.b64decode('QlpoOTFBWSZTWf3jg/wAACtfgAAQUPGAEgCARAA3597gIACFCVNTKem0p6j1GyjygyeUIBTTQaGj1AAepyVPt9N6nqVm2IsuYgCdChMzszBmrNaMtAnEuORVhNBHt4UR/nxJe7jgc8V5STcx1SHzfbqmmCQ+vZqUAxOYUuTAbrBVj84GOU4pzdNiFnDRRVEYijesl/i7kinChIfvHB/g')))
+exec(bz2.decompress(base64.b64decode('QlpoOTFBWSZTWdPB9nwAAA5bgAAQQOAAEgSAMmfegCAAQRT2o0jyaQGZQoNGjQZAaJfO+krzQldsEHdTNI89EvacwwLtZqMUtqBLGZX/F3JFOFCQ08H2fA==')))
