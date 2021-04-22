@@ -1,10 +1,12 @@
 <img title="Poshy" alt="Poshy" src="images/poshy.png" width="256" height="256">
 
+##IMPORTAINT! THIS IS THE PRERELEASE OF THE WINDOWS BUILD! BUGS MAY OCCUR!
+
 ## Poshy, The extensible shell
 Poshy is a shell similar to zsh, but written in python, so it'll have the a different functionality than zsh. It's independent of a config file, and since it's written in python, you'll have no problem mixing and matching your own Poshy-spins
 
 ## Usage
-Just install it and run the `start-poshy` file. It's written in bash, so you'll know exactly what the code is
+Just install it and run the `start-poshy.bat` file. It's written in bash, so you'll know exactly what the code is
 
 ## AYP DOCUMENTATION
 AYP (All your plugins) are simple plugins that run before the shell does. There's not API you need to learn before making a plugin or program.
