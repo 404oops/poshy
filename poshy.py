@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from poshy import VERSION, aya
+from poshy import VERSION, aya, poshcorn
 import os
 import getpass
 
