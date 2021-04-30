@@ -17,6 +17,11 @@ PS1 = f"Poshy v{VERSION} | {un} {pwd} {id} "
 if CS in globals():
     PS1 = CS
 while True:
+    pwd = os.getcwd()
+    PS1 = f"Poshy v{VERSION} | {un} {pwd} {id} "
+    # if an alternative is detected, make it use that one instead of PS1
+    if CS in globals():
+        PS1 = CS
     app = input(PS1)
     if "cd" in app:
         dir = app[3:]
