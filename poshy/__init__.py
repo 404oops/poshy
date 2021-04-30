@@ -1,3 +1,3 @@
 from . import aya, poshcorn
 
-VERSION = '0.0.9'
+VERSION = '0.2'

@@ -1,8 +1,10 @@
 import os
-
-def install(ghuser, ghrepo):
-    os.system(f"git clone https://github.com/{ghuser}/{ghrepo} ")
-    os.chdir(ghrepo)
+mirror = "66.79.166.101/poshcorn"
+pcd = os.getcwd()
+def install(pkg):
+    cud = os.getcwd()
+    os.chdir(pcd)
+    os.system(f"wget 'http://{mirror}/{pkg}/install.sh"'')
     os.system("bash install.sh")
-    os.chdir("")
-    os.system(f"rm -rf {ghrepo}")
+    os.system("rm install.sh")
+    os.chdir(cud)
