@@ -5,7 +5,7 @@ CS = ""
 from poshy import VERSION, aya, poshcorn
 import os
 import getpass
-
+os.chdir(os.getenv("HOME"))
 un = getpass.getuser()
 id = '$'
 if un == 'root': # FIXME: this check is bad, check for UID=0 instead
