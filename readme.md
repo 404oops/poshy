@@ -1,7 +1,7 @@
-<center>
+<p align="center">
 	<img title="Poshy" alt="Poshy" src="images/poshy-logo.png" width="256">
 	<h1>Poshy, an extensible shell written in Python</h1>
-</center>
+</p align "center">
 
 You can contact us via <a href="https://discord.gg/R5ExvA63Jz">our Discord!</a>
 
