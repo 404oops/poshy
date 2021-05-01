@@ -22,8 +22,8 @@ For the file structure and installation, AYP recommends you use `bash` for the s
 The file structure is:
 
 1. Using `curl` or `wget` to download the bundle
-2. Extracting the bundle
-3. Putting it in the `programs` dir and
-4. Putting ```echo 'import bin.programs.<AYPNAME> >> ayploader.py```, while replacing \<AYPNAME> with your package name
+2. Extract the bundle
+3. Put it in the `programs` dir and
+4. Run ```echo 'import bin.programs.<AYPNAME> >> ayploader.py``` in terminal, while replacing \<AYPNAME> with your package name
 
-Package manager coming soon, make sure you make `carapace` your installation hosting subdomain 
+Package manager coming soon, make sure you make `carapace` as your installation hosting subdomain 
