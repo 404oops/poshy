@@ -3,7 +3,7 @@
 	<h1>Poshy, an extensible shell written in Python</h1>
 </p align "center">
 
-You can contact us via <a href="https://discord.gg/R5ExvA63Jz">our Discord!</a>
+You can contact us via [our Discord!](https://discord.gg/R5ExvA63Jz)
 
 Poshy is a work-in-progress shell written in Python. As of now, it has no configuration files.
 
