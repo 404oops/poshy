@@ -8,7 +8,7 @@ You can contact us via [our Discord!](https://discord.gg/R5ExvA63Jz)
 Poshy is a work-in-progress shell written in Python. As of now, it has no configuration files.
 
 ## Usage
-Git clone the repo (or download as a ZIP file if you're into that) and run `python3 ./poshy.py`
+Clone this repo (or download as a ZIP file) and run `python3 ./poshy.py`.
 
 ## AYP DOCUMENTATION
 AYP (All your plugins) are simple plugins that run before the shell does. There's not API you need to learn before making a plugin or program.
