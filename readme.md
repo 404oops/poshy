@@ -17,7 +17,7 @@ For the file structure and installation, AYP recommends you use `bash` for the s
 
 1. That we strictly moderate your plugins
 2. That we can control them
-3. That you must'nt make a virus of sort with your AYP plugin
+3. That you must **NOT** make some sort of virus on your AYP plugin
 
 The file structure is:
 
