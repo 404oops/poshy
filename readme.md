@@ -1,5 +1,5 @@
 <p align="center">
-	<img title="Poshy" alt="Poshy" src="images/poshy-logo-light.png" width="256">
+	<img title="Poshy" alt="Poshy" src="images/poshy-logo-shadowed.png" width="256">
 	<h1>Poshy, an extensible shell written in Python</h1>
 </p align "center">
 
