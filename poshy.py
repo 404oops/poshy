@@ -12,7 +12,7 @@ if un == 'root': # FIXME: this check is bad, check for UID=0 instead
     id = '#'
 # TODO: replace this with smth nicer, maybe "[{hostname}@{username}] {curdir}{id} "?
 pwd = os.getcwd() # the 'curdir' above is this shit. might need a FIXME later.
-PS1 = f"Poshy v{VERSION} | {un} {pwd} {id}
+PS1 = f"Poshy v{VERSION} | {un} {pwd} {id} "
 while True:
     pwd = os.getcwd()
     PS1 = f"Poshy v{VERSION} | {un} {pwd} {id} "
