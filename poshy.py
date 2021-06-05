@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 CS = ""
 from poshy import VERSION, aya, poshcorn, hlp
-import os, getpass, socket
+import os, getpass, socket, subprocess, shlex
 os.chdir(os.getenv("HOME"))
 un = getpass.getuser()
 hn = socket.gethostname()
@@ -31,8 +31,9 @@ while True:
     if app == 'exit':
         exit()
     if app == 'help':
-        hlp.help()
+        hlp.twhlp()
     try:
-        eval(app)
+        exec(app)
     except:
-        os.system(app)
+        app = shlex.split(app)
+        subprocess.run(app)
