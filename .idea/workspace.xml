@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19e5fd91-9202-4c4d-a73f-537c003dfbd4" name="Default Changelist" comment="Update .gitignore">
-      <change afterPath="$PROJECT_DIR$/images/poshy-logo-dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/poshy-logo-light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/poshy-logo-shadowed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/poshy.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/poshy-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/poshy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/poshy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/poshy.py" beforeDir="false" afterPath="$PROJECT_DIR$/poshy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/poshy/addons/motd.py" beforeDir="false" afterPath="$PROJECT_DIR$/poshy/addons/motd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/poshy/aya.py" beforeDir="false" afterPath="$PROJECT_DIR$/poshy/aya.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/poshy/poshcorn.py" beforeDir="false" afterPath="$PROJECT_DIR$/poshy/poshcorn.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +39,14 @@
     </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="1rXU5ApzAEMnlCmnVwNZ5yXDmkb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -51,6 +61,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -135,6 +146,7 @@
       <workItem from="1620484045791" duration="4000" />
       <workItem from="1620484081588" duration="6000" />
       <workItem from="1620738234330" duration="1000" />
+      <workItem from="1621594609054" duration="136000" />
     </task>
     <task id="LOCAL-00001" summary="developed poshcorn">
       <created>1619121989507</created>
@@ -171,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620750093147</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Update .gitignore">
+      <created>1620917630080</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1620917630080</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

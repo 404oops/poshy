@@ -5,4 +5,3 @@ TODO: actually do documentation for this (404oops: it'll be in a gist, don't wor
 """
 
 from .addons import motd
-from .addons import minifetch
