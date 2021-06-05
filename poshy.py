@@ -1,22 +1,27 @@
 #!/usr/bin/env python3
-# mandatory blank var because errors
-# FIXME: please find a better way to achieve this
 CS = ""
-from poshy import VERSION, aya, poshcorn
-import os
-import getpass
+from poshy import VERSION, aya, poshcorn, hlp
+import os, getpass, socket
 os.chdir(os.getenv("HOME"))
 un = getpass.getuser()
+hn = socket.gethostname()
+if ".local" in hn:
+    hn = hn[:-6]
 id = '$'
-if un == 'root': # FIXME: this check is bad, check for UID=0 instead
+if un == 'root':
     id = '#'
-# TODO: replace this with smth nicer, maybe "[{hostname}@{username}] {curdir}{id} "?
-pwd = os.getcwd() # the 'curdir' above is this shit. might need a FIXME later.
-PS1 = f"Poshy v{VERSION} | {un} {pwd} {id}
+    print("Poshy is unstable on root, because you may type something wrong and it may be irreversible. Proceed with caution")
+print(f"Poshy v{VERSION}")
+pwd = os.getcwd()
 while True:
     pwd = os.getcwd()
-    PS1 = f"Poshy v{VERSION} | {un} {pwd} {id} "
-    # if an alternative is detected, make it use that one instead of PS1
+    if "/Users/" in pwd:
+        pwd = pwd[6:]
+        pwd = f"~{pwd}"
+    if "/home/" in pwd:
+        pwd = pwd[5:]
+        pwd = f"~{pwd}"
+    PS1 = f"[{un}@{hn}] {pwd} {id} "
     if CS in globals():
         PS1 = CS
     app = input(PS1)
@@ -25,7 +30,9 @@ while True:
         os.chdir(dir)
     if app == 'exit':
         exit()
+    if app == 'help':
+        hlp.help()
     try:
-        eval(app) # FIXME: this is stupid
+        eval(app)
     except:
-        os.system(app) # FIXME: this relies on an another shell, trash, we need to change the shell variable.
+        os.system(app)
