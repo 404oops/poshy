@@ -17,9 +17,9 @@ if d > VERSION:
         if subprocess.getoutput(gp) == "Already up to date.":
             gp = shlex.split(gp)
             subprocess.run(gp)
-            continue
-        gp = shlex.split(gp)
-        subprocess.run(gp)
-        print("Updated!")
+        else:
+            gp = shlex.split(gp)
+            subprocess.run(gp)
+            print("Updated!")
     elif au == 0:
         print(f"This version of poshy is outdated, please download the newer version of Poshy at Github (Current version: {VERSION}, new: {d})")
