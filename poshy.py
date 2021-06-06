@@ -45,7 +45,10 @@ while True:
                 app = shlex.split(app)
                 subprocess.run(app)
             except:
-                continue
+                if 'cd' in app:
+                    continue
+                else:
+                    continue
     except KeyboardInterrupt:
         print("\n")
         continue
