@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19e5fd91-9202-4c4d-a73f-537c003dfbd4" name="Default Changelist" comment="If CD is typed in, don't run it through subprocess, and &#10;more">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poshy/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/poshy/__init__.py" afterDir="false" />
-    </list>
+    <list default="true" id="19e5fd91-9202-4c4d-a73f-537c003dfbd4" name="Default Changelist" comment="versioning system implemented" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -241,7 +238,21 @@
       <option name="project" value="LOCAL" />
       <updated>1622982507415</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="If CD is typed in, don't run it through subprocess, and &#10;more">
+      <created>1622994476841</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1622994476841</updated>
+    </task>
+    <task id="LOCAL-00016" summary="versioning system implemented">
+      <created>1622994517181</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1622994517181</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,6 +281,7 @@
     <MESSAGE value="l" />
     <MESSAGE value="Big L" />
     <MESSAGE value="If CD is typed in, don't run it through subprocess, and &#10;more" />
-    <option name="LAST_COMMIT_MESSAGE" value="If CD is typed in, don't run it through subprocess, and &#10;more" />
+    <MESSAGE value="versioning system implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="versioning system implemented" />
   </component>
 </project>
