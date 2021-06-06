@@ -14,33 +14,39 @@ if un == 'root':
 print(f"Poshy v{VERSION}")
 pwd = os.getcwd()
 while True:
-    pwd = os.getcwd()
-    if os.getenv("HOME") in pwd:
-        al = os.getenv("HOME")
-        va = len(al)
-        pwd = pwd[va:]
-        pwd = f"~{pwd}"
-    PS1 = f"[{un}@{hn}] {pwd} {id} "
-    if CS in globals():
-        PS1 = CS
-    app = input(PS1)
-    if "cd" in app:
-        try:
-            dir = app[3:]
-            os.chdir(dir)
-        except:
-            print(f"Directory '{dir}' has not been found.")
-            continue
-    if app == 'exit':
-        exit()
-    if app == 'help':
-        hlp.twhlp()
     try:
-        exec(app)
-    except:
+        pwd = os.getcwd()
+        if os.getenv("HOME") in pwd:
+            al = os.getenv("HOME")
+            va = len(al)
+            pwd = pwd[va:]
+            pwd = f"~{pwd}"
+        PS1 = f"[{un}@{hn}] {pwd} {id} "
+        if CS in globals():
+            PS1 = CS
+        app = input(PS1)
+        if "cd" in app:
+            try:
+                dir = app[3:]
+                os.chdir(dir)
+            except:
+                print(f"Directory '{dir}' has not been found.")
+                continue
+        if app == ('exit'):
+            exit()
+        if app == 'exit()':
+            exit()
+        if app == 'help':
+            hlp.twhlp()
         try:
-            app = shlex.split(app)
-            subprocess.run(app)
+            exec(app)
         except:
-            print("Syntax error") # more syntax errors will be implemented soon
-            continue
+            try:
+                app = shlex.split(app)
+                subprocess.run(app)
+            except:
+                print("Syntax error")  # more syntax errors will be implemented soon
+                continue
+    except KeyboardInterrupt:
+        print("\n")
+        continue
