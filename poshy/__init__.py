@@ -1,6 +1,6 @@
 from . import aya, poshcorn
 mirror = "404oops.ml/poshcorn"
-VERSION = 0.2
+VERSION = 0.3
 ### VERSION SYSTEM
 import shlex, subprocess
 cmd = "curl -s http://404oops.ml/poshcorn/version"
