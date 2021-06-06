@@ -45,8 +45,6 @@ while True:
                 app = shlex.split(app)
                 subprocess.run(app)
             except:
-                print("Syntax error")  # more syntax errors will be implemented soon
-                continue
     except KeyboardInterrupt:
         print("\n")
         continue
