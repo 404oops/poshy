@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="19e5fd91-9202-4c4d-a73f-537c003dfbd4" name="Default Changelist" comment="Adds new features, such as an improved PS1 and user directory, updated instabilities with Minifetch installed out-of-box (which is bad considering that some users run this on systems incompatible with minifetch). + v0.2 has been released, although v0.1 was in development, we decided to skip that version due to instabilities.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poshy.py" beforeDir="false" afterPath="$PROJECT_DIR$/poshy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poshy/hlp.py" beforeDir="false" afterPath="$PROJECT_DIR$/poshy/hlp.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

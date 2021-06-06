@@ -25,9 +25,12 @@ while True:
         if CS in globals():
             PS1 = CS
         app = input(PS1)
-        if "cd" in app:
+        if "cd" in app[0:2]:
             try:
                 dir = app[3:]
+                if '' in dir:
+                    print("No directory passed")
+                    continue
                 os.chdir(dir)
             except:
                 print(f"Directory '{dir}' has not been found.")
@@ -48,6 +51,7 @@ while True:
                 if 'cd' in app:
                     continue
                 else:
+                    print("Syntax error")
                     continue
     except KeyboardInterrupt:
         print("\n")
