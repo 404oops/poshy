@@ -45,6 +45,7 @@ while True:
                 app = shlex.split(app)
                 subprocess.run(app)
             except:
+                continue
     except KeyboardInterrupt:
         print("\n")
         continue
