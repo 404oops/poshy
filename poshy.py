@@ -28,6 +28,9 @@ while True:
         if "cd" in app[0:2]:
             try:
                 dir = app[3:]
+                if dir == '':
+                    os.chdir(os.getenv("HOME"))
+                    continue
                 os.chdir(dir)
             except:
                 print(f"Directory '{dir}' has not been found.")
@@ -42,6 +45,8 @@ while True:
             exec(app)
         except:
             try:
+                if 'cd' in app:
+                    continue
                 app = shlex.split(app)
                 subprocess.run(app)
             except:
