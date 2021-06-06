@@ -15,22 +15,22 @@ print(f"Poshy v{VERSION}")
 pwd = os.getcwd()
 while True:
     pwd = os.getcwd()
-    if "/Users/" in pwd:
-        pwd = pwd[6:]
-        pwd = f"~{pwd}"
-    if "/home/" in pwd:
-        pwd = pwd[5:]
-        pwd = f"~{pwd}"
-    if "/data/data/com.termux/files/home" in pwd:
-        pwd = pwd[32:]
+    if os.getenv("HOME") in pwd:
+        al = os.getenv("HOME")
+        va = len(al)
+        pwd = pwd[va:]
         pwd = f"~{pwd}"
     PS1 = f"[{un}@{hn}] {pwd} {id} "
     if CS in globals():
         PS1 = CS
     app = input(PS1)
     if "cd" in app:
-        dir = app[3:]
-        os.chdir(dir)
+        try:
+            dir = app[3:]
+            os.chdir(dir)
+        except:
+            print(f"Directory '{dir}' has not been found.")
+            continue
     if app == 'exit':
         exit()
     if app == 'help':
@@ -38,5 +38,9 @@ while True:
     try:
         exec(app)
     except:
-        app = shlex.split(app)
-        subprocess.run(app)
+        try:
+            app = shlex.split(app)
+            subprocess.run(app)
+        except:
+            print("Syntax error") # more syntax errors will be implemented soon
+            continue
