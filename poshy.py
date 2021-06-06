@@ -28,9 +28,6 @@ while True:
         if "cd" in app[0:2]:
             try:
                 dir = app[3:]
-                if '' in dir:
-                    print("No directory passed")
-                    continue
                 os.chdir(dir)
             except:
                 print(f"Directory '{dir}' has not been found.")
