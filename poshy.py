@@ -21,6 +21,9 @@ while True:
     if "/home/" in pwd:
         pwd = pwd[5:]
         pwd = f"~{pwd}"
+    if "/data/data/com.termux/files/home" in pwd:
+        pwd = pwd[32:]
+        pwd = f"~{pwd}"
     PS1 = f"[{un}@{hn}] {pwd} {id} "
     if CS in globals():
         PS1 = CS
