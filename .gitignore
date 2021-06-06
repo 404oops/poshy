@@ -5,3 +5,5 @@ poshy/aya.py
 .env/
 .vscode/
 .DS_STORE
+.idea/workspace.xml
+minifetch.py
