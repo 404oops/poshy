@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 CS = ""
 from poshy import VERSION, aya, poshcorn, hlp
 import os, getpass, socket, subprocess, shlex
@@ -49,11 +49,11 @@ while True:
                     continue
                 app = shlex.split(app)
                 subprocess.run(app)
-            except:
+            except Exception as e:
                 if 'cd' in app:
                     continue
                 else:
-                    print("Syntax error")
+                    print(e)
                     continue
     except KeyboardInterrupt:
         print("\n")
