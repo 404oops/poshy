@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!python3
 CS = ""
 from poshy import VERSION, aya, poshcorn, hlp
 import os, getpass, socket, subprocess, shlex
