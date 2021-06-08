@@ -1,7 +1,7 @@
 from . import aya, poshcorn
 import os, shlex, subprocess
 mirror = "404oops.ml/poshcorn"
-VERSION = 0.5
+VERSION = 0.6
 ### VERSION SYSTEM]
 # BY DEFAULT AUTO-UPDATES ARE ON, PLEASE TURN IT OFF IF YOU DONT WANT AUTO-UPDATES
 au = 1
