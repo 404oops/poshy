@@ -1,7 +1,9 @@
 #!python3
 CS = ""
-from poshy import VERSION, aya, poshcorn, hlp
-import os, getpass, socket, subprocess, shlex
+from poshy import VERSION, hlp
+import os, getpass, socket, subprocess, shlex, argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("-v", "--version", action="version", version=f"Poshy v{VERSION}")
 os.chdir(os.getenv("HOME"))
 un = getpass.getuser()
 hn = socket.gethostname()
