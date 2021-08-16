@@ -1,3 +1,4 @@
+ [![Please do not theme this app](https://stopthemingmy.app/badge.svg)](https://stopthemingmy.app) 
 <p align="center">
 	<img title="Poshy" alt="Poshy" src="images/poshy-logo-shadowed.png" width="256">
 	<h1>Poshy, an extensible shell written in Python</h1>
