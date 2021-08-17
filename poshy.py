@@ -1,9 +1,11 @@
-#!python3
-CS = ""
-from poshy import VERSION, hlp
+#!/usr/bin/env python3
+VERSION = 0.7
 import os, getpass, socket, subprocess, shlex, argparse
 parser = argparse.ArgumentParser()
-parser.add_argument("-v", "--version", action="version", version=f"Poshy v{VERSION}")
+parser.add_argument("-v", "--version", action="version", version=f"Poshy v{VERSION}", help="Shows the current version")
+parser.parse_args()
+CS = ""
+from poshy import hlp
 os.chdir(os.getenv("HOME"))
 un = getpass.getuser()
 hn = socket.gethostname()
