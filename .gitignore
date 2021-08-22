@@ -7,3 +7,4 @@ poshy/aya.py
 .DS_STORE
 .idea/workspace.xml
 minifetch.py
+.idea/misc.xml
