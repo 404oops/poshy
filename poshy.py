@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# please make python3 a link to pypy
+# please make python3 a link to pypy3
 VERSION = 0.7
 import os, getpass, socket, subprocess, shlex, argparse
 parser = argparse.ArgumentParser()
