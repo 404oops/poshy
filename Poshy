@@ -30,7 +30,8 @@ while True:
         if CS in globals():
             PS1 = CS
         app = input(PS1)
-        with open("~/.psh_history", 'a') as file:
+        home = os.getenv("HOME")
+        with open(f"{home}/.psh_history", 'a+') as file:
             file.write(f"{app}\n")
         if "cd" in app[0:2]:
             try:
