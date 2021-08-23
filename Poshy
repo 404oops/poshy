@@ -3,7 +3,7 @@
 VERSION = 0.7
 import os, getpass, socket, subprocess, shlex, argparse
 parser = argparse.ArgumentParser()
-parser.add_argument("-v", "--version", action="version", version=f"Poshy v{VERSION}", help="Shows the current version")
+parser.add_argument("-v", "--version", action="version", version=f"v{VERSION}", help="Shows the current version")
 parser.parse_args()
 CS = ""
 from poshy import hlp
@@ -46,6 +46,11 @@ while True:
             exit()
         if app == 'help':
             hlp.twhlp()
+        env = os.environ.copy()
+        env["SHELL"] = __file__
+        def export(var, value):
+            env[var] = value
+        # now you edit envvars until the subprocess shit
         try:
             exec(app)
         except:
@@ -53,7 +58,7 @@ while True:
                 if 'cd' in app:
                     continue
                 app = shlex.split(app)
-                subprocess.run(app)
+                subprocess.run(app, env=env)
             except Exception as e:
                 if 'cd' in app:
                     continue
