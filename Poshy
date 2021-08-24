@@ -7,7 +7,6 @@ parser.add_argument("-v", "--version", action="version", version=f"v{VERSION}", 
 parser.parse_args()
 CS = ""
 from poshy import hlp
-os.chdir(os.getenv("HOME"))
 un = getpass.getuser()
 hn = socket.gethostname()
 if ".local" in hn:
@@ -43,9 +42,7 @@ while True:
             except:
                 print(f"Directory '{dir}' has not been found.")
                 continue
-        if app == ('exit'):
-            exit()
-        if app == 'exit()':
+        if app == ['exit', 'exit()']:
             exit()
         if app == 'help':
             hlp.twhlp()
