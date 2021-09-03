@@ -11,7 +11,7 @@ if not os.path.exists(MSG_PATH):
     # check if user runs MS Windows
 
     if platform.system() == "Windows":
-        print("Oops! Your OS is not meant to run poshy, try using WSL, or use Linux! Exiting in 2 seconds.")
+        print("Oops! Your OS is not meant to run more, try using WSL, or use Linux! Exiting in 2 seconds.")
         time.sleep(2)
         quit()
     else:

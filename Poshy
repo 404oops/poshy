@@ -6,7 +6,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-v", "--version", action="version", version=f"v{VERSION}", help="Shows the current version")
 parser.parse_args()
 CS = ""
-from poshy import hlp
+from more import hlp
 un = getpass.getuser()
 hn = socket.gethostname()
 if ".local" in hn:
@@ -42,7 +42,7 @@ while True:
             except:
                 print(f"Directory '{dir}' has not been found.")
                 continue
-        if app == ['exit', 'exit()']:
+        if app in ['exit', 'exit()']:
             exit()
         if app == 'help':
             hlp.twhlp()
