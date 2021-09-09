@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # please make python3 a link to pypy3
-VERSION = 0.7
+VERSION = 0.8
 import os, getpass, socket, subprocess, shlex, argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("-v", "--version", action="version", version=f"v{VERSION}", help="Shows the current version")
@@ -12,9 +12,8 @@ hn = socket.gethostname()
 if ".local" in hn:
     hn = hn[:-6]
 id = '$'
-if un == 'root':
+if os.getuid() == 0:
     id = '#'
-    print("Poshy is unstable on root, because you may type something wrong and it may be irreversible. Proceed with caution")
 print(f"Poshy v{VERSION}")
 pwd = os.getcwd()
 while True:
@@ -47,10 +46,12 @@ while True:
         if app == 'help':
             hlp.twhlp()
         env = os.environ.copy()
-        env["SHELL"] = __file__
+        env["SHELL"] = __file__  # sets the shell variable
         def export(var, value):
             env[var] = value
         # now you edit envvars until the subprocess shit
+
+        # the end
         try:
             exec(app)
         except:
