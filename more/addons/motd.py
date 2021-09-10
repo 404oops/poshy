@@ -5,13 +5,10 @@ import time
 MSG_PATH = os.path.join(os.path.dirname(__file__), ".motd")
 
 if not os.path.exists(MSG_PATH):
-
     getOS = platform.system()
-
     # check if user runs MS Windows
-
-    if platform.system() == "Windows":
-        print("Oops! Your OS is not meant to run more, try using WSL, or use Linux! Exiting in 2 seconds.")
+    if getOS == "Windows":
+        print("Oops! Your OS is not meant to run Poshy, try using WSL, or use Linux! Exiting in 2 seconds.")
         time.sleep(2)
         quit()
     else:
