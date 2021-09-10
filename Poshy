@@ -14,7 +14,6 @@ if ".local" in hn:
 id = '$'
 if os.getuid() == 0:
     id = '#'
-print(f"Poshy v{VERSION}")
 pwd = os.getcwd()
 while True:
     try:
