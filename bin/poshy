@@ -6,7 +6,6 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-v", "--version", action="version", version=f"v{VERSION}", help="Shows the current version")
 parser.parse_args()
 CS = ""
-from more import hlp
 un = getpass.getuser()
 hn = socket.gethostname()
 if ".local" in hn:
@@ -42,8 +41,6 @@ while True:
                 continue
         if app in ['exit', 'exit()']:
             exit()
-        if app == 'help':
-            hlp.twhlp()
         env = os.environ.copy()
         env["SHELL"] = __file__  # sets the shell variable
         def export(var, value):
