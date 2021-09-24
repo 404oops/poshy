@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+try:
+    import aya
+except ImportError:
+    pass
+# please make python3 a link to pypy3
+VERSION = 0.9
+import os, getpass, socket, subprocess, shlex, argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("-v", "--version", action="version", version=f"v{VERSION}", help="Shows the current version")
+parser.parse_args()
+CS = ""
+un = getpass.getuser()
+hn = socket.gethostname()
+if ".local" in hn:
+    hn = hn[:-6]
+id = '$'
+if os.getuid() == 0:
+    id = '#'
+pwd = os.getcwd()
+while True:
+    try:
+        pwd = os.getcwd()
+        if os.getenv("HOME") in pwd:
+            al = os.getenv("HOME")
+            va = len(al)
+            pwd = pwd[va:]
+            pwd = f"~{pwd}"
+        PS1 = f"[{un}@{hn}] {pwd} {id} "
+        if CS in globals():
+            PS1 = CS
+        app = input(PS1)
+        home = os.getenv("HOME")
+        with open(f"{home}/.psh_history", 'w') as file:
+            file.write(f"{app}\n")
+        if "cd" in app[0:2]:
+            try:
+                dir = app[3:]
+                if dir == '':
+                    os.chdir(os.getenv("HOME"))
+                    continue
+                os.chdir(dir)
+            except:
+                print(f"Directory '{dir}' has not been found.")
+                continue
+        if app in ['exit', 'exit()']:
+            exit()
+        env = os.environ.copy()
+        env["SHELL"] = __file__  # sets the shell variable
+        def export(var, value):
+            env[var] = value
+        # now you edit envvars until the subprocess shit
+        # the end
+        try:
+            exec(app)
+        except:
+            try:
+                if 'cd' in app:
+                    continue
+                app = shlex.split(app)
+                subprocess.run(app, env=env)
+            except Exception as e:
+                if 'cd' in app:
+                    continue
+                else:
+                    print(e)
+                    continue
+    except KeyboardInterrupt:
+        print("\n")
+        continue

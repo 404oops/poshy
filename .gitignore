@@ -1,7 +1,7 @@
 __pycache__/
-poshy/addons/minifetch.py
-poshy/addons/.motd
-poshy/aya.py
+bin/poshy/addons/minifetch.py
+bin/poshy/addons/.motd
+bin/poshy/aya.py
 .env/
 .vscode/
 .DS_STORE
