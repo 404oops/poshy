@@ -7,3 +7,4 @@ bin/poshy/aya.py
 .DS_STORE
 minifetch.py
 .idea/
+/dist/

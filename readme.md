@@ -1,9 +1,7 @@
 <p align="center">
-	<img title="Poshy" alt="Poshy" src="images/poshy-logo-shadowed.png" width="256">
+	<a href="https://discord.gg/R5ExvA63Jz"><img title="Poshy" alt="Poshy" src="images/poshy-logo-shadowed.png" width="256"></a>
 	<h1>Poshy, an extensible shell written in Python</h1>
 </p>
-
-You can contact us via [our Discord!](https://discord.gg/R5ExvA63Jz)
 
 Poshy is a work-in-progress shell written in Python. As of now, it has no configuration files.
 
