@@ -4,7 +4,7 @@ try:
 except ImportError:
     pass
 # please make python3 a link to pypy3
-VERSION = 1.5
+VERSION = 1.6
 import os, getpass, socket, subprocess, shlex, argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("-v", "--version", action="version", version=f"v{VERSION}", help="Shows the current version")
