@@ -5,7 +5,7 @@ except ImportError:
     pass
 # please make python3 a link to pypy3
 VERSION = 1.7
-import os, getpass, socket, subprocess, shlex, argparse
+import os, getpass, socket, subprocess, shlex, argparse, readline
 parser = argparse.ArgumentParser()
 parser.add_argument("-v", "--version", action="version", version=f"v{VERSION}", help="Shows the current version")
 parser.parse_args()
@@ -29,6 +29,18 @@ while True:
         PS1 = f"[{un}@{hn}] {pwd} {id} "
         if CS in globals():
             PS1 = CS
+        values = os.listdir()
+        def complete(text, state):
+            matches = [v for v in values if v.startswith(text)]
+            if len(matches) == 1 and matches[0] == text:
+                # Add space if the current text is the same as the only match
+                return "{} ".format(matches[0]) if state == 0 else None
+            if state >= len(matches):
+                return None
+            return matches[state]
+        readline.set_completer(complete)
+        for line in ("tab: complete", "set show-all-if-unmodified on"):
+            readline.parse_and_bind(line)
         app = input(PS1)
         home = os.getenv("HOME")
         with open(f"{home}/.psh_history", 'w') as file:
