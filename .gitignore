@@ -8,3 +8,7 @@ bin/poshy/aya.py
 minifetch.py
 .idea/
 /dist/
+poshy.egg-info/dependency_links.txt
+poshy.egg-info/PKG-INFO
+poshy.egg-info/SOURCES.txt
+poshy.egg-info/top_level.txt
