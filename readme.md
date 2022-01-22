@@ -1,5 +1,5 @@
 <p align="center">
-	<a href="https://discord.gg/R5ExvA63Jz"><img title="Poshy" alt="Poshy" src="images/poshy-logo-shadowed.png" width="256"></a>
+	<img title="Poshy" alt="Poshy" src="images/poshy-logo-shadowed.png" width="256">
 	<h1>Poshy, an extensible shell written in Python</h1>
 </p>
 

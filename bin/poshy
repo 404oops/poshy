@@ -3,12 +3,9 @@ try:
     import aya
 except ImportError:
     pass
-# please make python3 a link to pypy3
 VERSION = 1.8
 import os, getpass, socket, subprocess, shlex, argparse, readline
-parser = argparse.ArgumentParser()
-parser.add_argument("-v", "--version", action="version", version=f"v{VERSION}", help="Shows the current version")
-parser.parse_args()
+
 CS = ""
 un = getpass.getuser()
 hn = socket.gethostname()
@@ -18,6 +15,39 @@ id = '$'
 if os.getuid() == 0:
     id = '#'
 pwd = os.getcwd()
+
+def run(app):
+    home = os.getenv("HOME")
+    with open(f"{home}/.psh_history", 'w') as file:
+        file.write(f"{app}\n")
+    if "cd" in app[0:2]:
+        try:
+            dir = app[3:]
+            if dir == '':
+                os.chdir(os.getenv("HOME"))
+            os.chdir(dir)
+        except:
+            print(f"Directory '{dir}' has not been found.")
+    if app in ['exit', 'exit()']:
+        exit()
+    env = os.environ.copy()
+    env["SHELL"] = __file__
+    def export(var, value):
+        env[var] = value
+    try:
+        exec(app)
+    except:
+        try:
+            app = shlex.split(app)
+            proc = subprocess.Popen(app, env=env, stdout=subprocess.PIPE, encoding="UTF-8")
+            return proc.communicate()[0].strip()
+        except Exception as e:
+            return e
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-v", "--version", action="version", version=f"v{VERSION}", help="Shows the current version")
+parser.parse_args()
+
 while True:
     try:
         pwd = os.getcwd()
@@ -42,41 +72,7 @@ while True:
         for line in ("tab: complete", "set show-all-if-unmodified on"):
             readline.parse_and_bind(line)
         app = input(PS1)
-        home = os.getenv("HOME")
-        with open(f"{home}/.psh_history", 'w') as file:
-            file.write(f"{app}\n")
-        if "cd" in app[0:2]:
-            try:
-                dir = app[3:]
-                if dir == '':
-                    os.chdir(os.getenv("HOME"))
-                    continue
-                os.chdir(dir)
-            except:
-                print(f"Directory '{dir}' has not been found.")
-                continue
-        if app in ['exit', 'exit()']:
-            exit()
-        env = os.environ.copy()
-        env["SHELL"] = __file__  # sets the shell variable
-        def export(var, value):
-            env[var] = value
-        # now you edit envvars until the subprocess shit
-        # the end
-        try:
-            exec(app)
-        except:
-            try:
-                if 'cd' in app:
-                    continue
-                app = shlex.split(app)
-                subprocess.run(app, env=env)
-            except Exception as e:
-                if 'cd' in app:
-                    continue
-                else:
-                    print(e)
-                    continue
+        print(run(app))
     except KeyboardInterrupt:
         print("\n")
         continue
