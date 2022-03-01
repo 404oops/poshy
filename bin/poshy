@@ -1,47 +1,64 @@
 #!/usr/bin/env python3
+import argparse
+import getpass
+import os
+import readline
+import socket
+import subprocess
+import re
+
 try:
     import aya
 except ImportError:
     pass
-VERSION = 1.8
-import os, getpass, socket, subprocess, argparse, readline
-
+VERSION = 2.0
+with open(os.getenv("HOME") + "/.psh_history", "r") as file:
+    hist = file.read().split("\n")
+    for i in hist:
+        readline.add_history(i)
 CS = ""
 un = getpass.getuser()
 hn = socket.gethostname()
 if ".local" in hn:
     hn = hn[:-6]
-id = '$'
+uid = '$'
 if os.getuid() == 0:
-    id = '#'
+    uid = '#'
 pwd = os.getcwd()
 
-def run(app):
+
+def run(runshell):
     home = os.getenv("HOME")
-    with open(f"{home}/.psh_history", 'w') as file:
-        file.write(f"{app}\n")
-    if "cd" in app[0:2]:
+    with open(f"{home}/.psh_history", 'a') as historyfile:
+        historyfile.write(f"{runshell}\n")
+    if "cd" in runshell[0:2]:
         try:
-            if app[3:] == '':
+            if runshell[3:] == '':
                 os.chdir(os.getenv("HOME"))
-            os.chdir(app[3:])
-        except:
-            print(f"Directory '{app[3:]}' has not been found.")
-    if app in ['exit', 'exit()']:
+            os.chdir(runshell[3:])
+        except Exception as e:
+            print(e)
+    if runshell in ['exit', 'exit()']:
         exit()
     env = os.environ.copy()
     env["SHELL"] = __file__
-    def export(var, value):
-        env[var] = value
-    try:
-        exec(app)
-    except:
+
+    finds = re.findall(r'\$(\w+)', runshell)
+    for variable in finds:
         try:
-            app = app.split(" ")
-            proc = subprocess.Popen(app, env=env, stdout=subprocess.PIPE, encoding="UTF-8")
+            runshell = runshell.replace('$' + variable, str(env[variable]))
+        except KeyError:
+            pass
+    try:
+        exec(runshell)
+    except Exception:
+        try:
+            runshell = runshell.split(" ")
+            proc = subprocess.Popen(runshell, env=env, stdout=subprocess.PIPE, encoding="UTF-8")
             return proc.communicate()[0].strip()
         except Exception as e:
             return e
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-v", "--version", action="version", version=f"v{VERSION}", help="Shows the current version")
@@ -55,9 +72,11 @@ while True:
             va = len(al)
             pwd = pwd[va:]
             pwd = f"~{pwd}"
-        PS1 = f"[{un}@{hn}] {pwd} {id} "
-        if CS in globals():
-            PS1 = CS
+        ps ="[\\u@\\h \\W]\\$ "
+        ps = ps.replace("\\u", getpass.getuser())
+        ps = ps.replace("\\h", socket.gethostname().replace(".local", ""))
+        ps = ps.replace("\\W", pwd)
+        ps = ps.replace("\\$", "#" if os.geteuid() == 0 else "$")
         values = os.listdir()
 
         # $PATH add
@@ -70,7 +89,10 @@ while True:
                     os.listdir(i)
                     for am in os.listdir(i):
                         values.append(am)
-                except FileNotFoundError: pass
+                except FileNotFoundError:
+                    pass
+
+
         def complete(text, state):
             matches = [v for v in values if v.startswith(text)]
             if len(matches) == 1 and matches[0] == text:
@@ -79,11 +101,14 @@ while True:
             if state >= len(matches):
                 return None
             return matches[state]
+
+
         readline.set_completer(complete)
         for line in ("tab: complete", "set show-all-if-unmodified on"):
             readline.parse_and_bind(line)
-        app = input(PS1)
-        print(run(app))
+        app = run(input(ps))
+        if app is not None:
+            print(app)
     except KeyboardInterrupt:
         print()
         continue
