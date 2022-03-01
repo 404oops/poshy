@@ -4,7 +4,7 @@ try:
 except ImportError:
     pass
 VERSION = 1.8
-import os, getpass, socket, subprocess, shlex, argparse, readline
+import os, getpass, socket, subprocess, argparse, readline
 
 CS = ""
 un = getpass.getuser()
@@ -22,12 +22,11 @@ def run(app):
         file.write(f"{app}\n")
     if "cd" in app[0:2]:
         try:
-            dir = app[3:]
-            if dir == '':
+            if app[3:] == '':
                 os.chdir(os.getenv("HOME"))
-            os.chdir(dir)
+            os.chdir(app[3:])
         except:
-            print(f"Directory '{dir}' has not been found.")
+            print(f"Directory '{app[3:]}' has not been found.")
     if app in ['exit', 'exit()']:
         exit()
     env = os.environ.copy()
@@ -38,7 +37,7 @@ def run(app):
         exec(app)
     except:
         try:
-            app = shlex.split(app)
+            app = app.split(" ")
             proc = subprocess.Popen(app, env=env, stdout=subprocess.PIPE, encoding="UTF-8")
             return proc.communicate()[0].strip()
         except Exception as e:
@@ -60,6 +59,18 @@ while True:
         if CS in globals():
             PS1 = CS
         values = os.listdir()
+
+        # $PATH add
+        envpath = os.getenv("PATH")
+        if envpath is not None:
+            envpath = envpath.split(":")
+
+            for i in envpath:
+                try:
+                    os.listdir(i)
+                    for am in os.listdir(i):
+                        values.append(am)
+                except FileNotFoundError: pass
         def complete(text, state):
             matches = [v for v in values if v.startswith(text)]
             if len(matches) == 1 and matches[0] == text:
@@ -74,5 +85,5 @@ while True:
         app = input(PS1)
         print(run(app))
     except KeyboardInterrupt:
-        print("\n")
+        print()
         continue
