@@ -11,7 +11,7 @@ try:
     import aya
 except ImportError:
     pass
-VERSION = 2.0
+VERSION = 2.1
 with open(os.getenv("HOME") + "/.psh_history", "r") as file:
     hist = file.read().split("\n")
     for i in hist:
@@ -54,8 +54,7 @@ def run(runshell):
     except Exception:
         try:
             runshell = runshell.split(" ")
-            proc = subprocess.Popen(runshell, env=env, stdout=subprocess.PIPE, encoding="UTF-8")
-            return proc.communicate()[0].strip()
+            subprocess.run(runshell, env=env, encoding="UTF-8")
         except Exception as e:
             return e
 
@@ -107,8 +106,6 @@ while True:
         for line in ("tab: complete", "set show-all-if-unmodified on"):
             readline.parse_and_bind(line)
         app = run(input(ps))
-        if app is not None:
-            print(app)
     except KeyboardInterrupt:
         print()
         continue
