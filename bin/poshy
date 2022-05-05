@@ -12,6 +12,10 @@ try:
 except ImportError:
     pass
 VERSION = 2.1
+
+try: open(os.getenv("HOME") + "/.psh_history", "x")
+except FileExistsError: pass
+    
 with open(os.getenv("HOME") + "/.psh_history", "r") as file:
     hist = file.read().split("\n")
     for i in hist:
