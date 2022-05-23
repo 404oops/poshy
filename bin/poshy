@@ -7,10 +7,8 @@ import socket
 import subprocess
 import re
 
-try:
-    import aya
-except ImportError:
-    pass
+try: import aya
+except ImportError: pass
 VERSION = 2.1
 
 try: open(os.getenv("HOME") + "/.psh_history", "x")
@@ -18,8 +16,7 @@ except FileExistsError: pass
     
 with open(os.getenv("HOME") + "/.psh_history", "r") as file:
     hist = file.read().split("\n")
-    for i in hist:
-        readline.add_history(i)
+    for i in hist: readline.add_history(i)
 CS = ""
 un = getpass.getuser()
 hn = socket.gethostname()
@@ -40,27 +37,23 @@ def run(runshell):
             if runshell[3:] == '':
                 os.chdir(os.getenv("HOME"))
             os.chdir(runshell[3:])
-        except Exception as e:
-            print(e)
-    if runshell in ['exit', 'exit()']:
-        exit()
+        except Exception as e: print(e)
+    if runshell in ['exit', 'exit()']: exit()
     env = os.environ.copy()
     env["SHELL"] = __file__
 
     finds = re.findall(r'\$(\w+)', runshell)
     for variable in finds:
-        try:
+        try: 
             runshell = runshell.replace('$' + variable, str(env[variable]))
-        except KeyError:
+        except KeyError: 
             pass
-    try:
-        exec(runshell)
+    try: exec(runshell)
     except Exception:
         try:
             runshell = runshell.split(" ")
             subprocess.run(runshell, env=env, encoding="UTF-8")
-        except Exception as e:
-            return e
+        except Exception as e: return e
 
 
 parser = argparse.ArgumentParser()
@@ -75,6 +68,7 @@ while True:
             va = len(al)
             pwd = pwd[va:]
             pwd = f"~{pwd}"
+        
         ps ="[\\u@\\h \\W]\\$ "
         ps = ps.replace("\\u", getpass.getuser())
         ps = ps.replace("\\h", socket.gethostname().replace(".local", ""))
@@ -86,30 +80,18 @@ while True:
         envpath = os.getenv("PATH")
         if envpath is not None:
             envpath = envpath.split(":")
-
             for i in envpath:
                 try:
                     os.listdir(i)
-                    for am in os.listdir(i):
-                        values.append(am)
-                except FileNotFoundError:
-                    pass
-
-
+                    for am in os.listdir(i): values.append(am)
+                except FileNotFoundError: pass
         def complete(text, state):
             matches = [v for v in values if v.startswith(text)]
-            if len(matches) == 1 and matches[0] == text:
-                # Add space if the current text is the same as the only match
-                return "{} ".format(matches[0]) if state == 0 else None
-            if state >= len(matches):
-                return None
+            if len(matches) == 1 and matches[0] == text: return "{} ".format(matches[0]) if state == 0 else None
+            if state >= len(matches): return None
             return matches[state]
-
-
         readline.set_completer(complete)
-        for line in ("tab: complete", "set show-all-if-unmodified on"):
-            readline.parse_and_bind(line)
+        for line in ("tab: complete", "set show-all-if-unmodified on"): readline.parse_and_bind(line)
         app = run(input(ps))
     except KeyboardInterrupt:
-        print()
-        continue
+        print(); continue
