@@ -5,6 +5,8 @@
 
 Poshy is a work-in-progress shell written in Python. As of now, it has no configuration files.
 
+![](https://soa.404oops.com/?user=404oops)
+
 To install, just clone this repo and then run `pip3 install .` and presto!
 
 For aya developers:
